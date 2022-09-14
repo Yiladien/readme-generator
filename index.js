@@ -167,12 +167,12 @@ function init() {
   inquirer
     .prompt(questions)
     .then((userInput) => {
-      console.log("createing markup");
+      console.log("createing markdown");
       return generateMarkdownPage(userInput);
     })
-    .then((markupData) => {
+    .then((markdownData) => {
       console.log("creating README file");
-      return writeToFile("README.md", markupData);
+      return writeToFile("README.md", markdownData);
     })
     .catch((err) => {
       console.log(err);

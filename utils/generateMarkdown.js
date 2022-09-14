@@ -15,6 +15,47 @@ function generateMarkdown(data) {
   console.log("generateMarkdown");
   return `# ${data.title}
 
+  ## Description
+  
+  ${data.description}
+  
+  ---
+  ## Table of Contents
+  
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
+  - [Tests](#tests)
+  
+  ---
+  ## Installation
+  
+  ${data.installation}
+  
+  ---
+  ## Usage
+  
+  ${data.usage}
+
+  ---
+  ## Credits
+  
+  ${data.contribution}
+
+  ---
+  ## License
+  
+  ${data.license}
+
+    
+  ---
+  
+  ## Tests
+  
+  ${data.tests}
+
+
 `;
 }
 
