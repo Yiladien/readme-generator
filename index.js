@@ -63,8 +63,8 @@ const questions = [
     type: "input",
     name: "contribution",
     message: "What are the contributing guidelines?",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (contributionInput) => {
+      if (contributionInput) {
         return true;
       } else {
         console.log("Please provide contributing guidelines!");
@@ -76,14 +76,20 @@ const questions = [
     type: "input",
     name: "tests",
     message: "Provide the test instructions:",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (testsInput) => {
+      if (testsInput) {
         return true;
       } else {
         console.log("Please provide test instructions!");
         return false;
       }
     },
+  },
+  {
+    type: "confirm",
+    name: "confirmLicense",
+    message: "Do you want to provide a license section?",
+    default: true,
   },
   {
     type: "list",
@@ -98,18 +104,53 @@ const questions = [
       "GNU LGPLv3",
       "Mozilla Public License 2.0",
       "Apache License 2.0",
-      "MIT License",
       "Boost Software License 1.0",
       "The Unlicense",
     ],
     default: 0,
+    when: ({ confirmLicense }) => confirmLicense,
+  },
+  {
+    type: "confirm",
+    name: "confirmImage",
+    message:
+      "Do you want to provide an image? It will be placed in the description section of the README.",
+    default: false,
+  },
+  {
+    type: "input",
+    name: "imageLink",
+    message: "Provide the image's relative link or url:",
+    validate: (testsInput) => {
+      if (testsInput) {
+        return true;
+      } else {
+        console.log("Please provide the link to the image!");
+        return false;
+      }
+    },
+    when: ({ confirmImage }) => confirmImage,
+  },
+  {
+    type: "input",
+    name: "imageAltText",
+    message: "Provide the image alt text:",
+    validate: (testsInput) => {
+      if (testsInput) {
+        return true;
+      } else {
+        console.log("Please provide alt text for the image!");
+        return false;
+      }
+    },
+    when: ({ confirmImage }) => confirmImage,
   },
   {
     type: "input",
     name: "githubUsername",
     message: "What is your github username?",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (githubUsernameInput) => {
+      if (githubUsernameInput) {
         return true;
       } else {
         console.log("Please provide github username!");
@@ -121,21 +162,8 @@ const questions = [
     type: "input",
     name: "email",
     message: "What is your email address?",
-    validate: (titleInput) => {
-      if (titleInput) {
-        return true;
-      } else {
-        console.log("Please provide your email address!");
-        return false;
-      }
-    },
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is your email address?",
-    validate: (titleInput) => {
-      if (titleInput) {
+    validate: (emailInput) => {
+      if (emailInput) {
         return true;
       } else {
         console.log("Please provide your email address!");
@@ -167,7 +195,7 @@ function init() {
   inquirer
     .prompt(questions)
     .then((userInput) => {
-      console.log("createing markdown");
+      console.log("creating markdown");
       return generateMarkdownPage(userInput);
     })
     .then((markdownData) => {
