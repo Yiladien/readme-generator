@@ -103,7 +103,7 @@ function renderTOC(userResponses) {
       `- [Contributing](#contributing\)
 `;
   }
-  if (userResponses.test) {
+  if (userResponses.tests) {
     tocList =
       tocList +
       `- [Tests](#tests\)

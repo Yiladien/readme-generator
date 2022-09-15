@@ -6,7 +6,7 @@
 
 Creates a professional README file for your project by answering simple questions in the command line. Also provides license badges and the ability to add an image to the README.
 
-![sample preview of the README file created by this application.](./dist/assets/img/readme-preview.jpg)
+![sample preview of the README file created by this application.](./assets/img/readme-preview.jpg)
 
 ---
 
@@ -15,6 +15,7 @@ Creates a professional README file for your project by answering simple question
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Tests](#tests)
 - [License](#license)
 - [Questions](#questions)
 
