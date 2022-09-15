@@ -59,7 +59,8 @@ const licenseData = [
 // function to create the markdown for the license section and badge
 function renderLicenseSection(license) {
   if (!license) {
-    return ``;
+    const licenseObj = { licenseSection: ``, licenseBadge: `` };
+    return licenseObj;
   }
 
   const licenseObj = licenseData.filter(
